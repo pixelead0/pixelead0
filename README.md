@@ -1,8 +1,9 @@
 <h1 align="center">
 
 ![Pixelead0's github stats](https://github-readme-stats.vercel.app/api?username=pixelead0&show_icons=true)
-
 </h1>
+
+![Timeline experience of pixelead0](img/timeline202502.png)
 
 👨‍💻Computer engineer
 
