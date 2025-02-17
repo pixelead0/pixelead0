@@ -27,5 +27,5 @@ https://github.com/chingona-com-mx
 https://github.com/py-mx
 
 # History Jobs
-![Timeline experience of pixelead0](img/timeline202502.png)
-[View page](https://github.com/pixelead0/pixelead0)
+[![Timeline experience of pixelead0](img/timeline202502.png)](https://pixelead0.github.io/pixelead0/index.html)
+[View page](https://pixelead0.github.io/pixelead0/index.html)
