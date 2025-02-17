@@ -28,3 +28,4 @@ https://github.com/py-mx
 
 # History Jobs
 ![Timeline experience of pixelead0](img/timeline202502.png)
+[View page](https://github.com/pixelead0/pixelead0)
