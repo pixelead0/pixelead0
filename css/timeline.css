@@ -1,0 +1,534 @@
+:root {
+    --primary-black: #000;
+    --company-color: #90cdf4;
+    --company-color-circle: #ffffff;
+    --company-color-bg1: #90cdf430;
+    --company-color-bg2: #90cdf420;
+    --company-color-bg3: #90cdf430;
+
+    /*--side-project: #87ca25;*/
+    --side-project: #ceb3ff;
+    --side-project-circle: #ffffff;
+    --side-project-bg3: #ceb3ff30;
+
+    --primary-gray: #4a5568;
+    --light-gray: #e5e5e5;
+    --covid-color: rgba(254, 202, 202, 0.1);
+    --h1n1-color: rgba(147, 197, 253, 0.3);
+    --earthquake-color: #ef4444;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 6px 12px rgba(0, 0, 0, 0.15);
+    --event-font: 'Arial, sans-serif';
+
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    padding: 2rem;
+    background-color: #f7fafc;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow-sm);
+    min-height: 800px;
+}
+
+/* Sistema de Grid para años */
+.years-grid {
+    display: grid;
+    grid-template-columns: repeat(19, minmax(60px, 1fr));
+    margin: 2rem 0;
+    position: relative;
+    border-bottom: 2px solid black;
+    border-top: 2px solid black;
+    z-index: 5;
+    top: 50%;
+}
+
+.year {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--primary-gray);
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+.year::after {
+    content: '';
+    position: absolute;
+    right: -1px;
+    top: 0;
+    height: 100%;
+    width: 1px;
+    background: var(--light-gray);
+}
+
+/* Línea de tiempo principal */
+.timeline {
+    position: relative;
+    height: 500px;
+    margin: 40px 0;
+}
+
+/* Eje de la línea de tiempo */
+.timeline-axis {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    /*height: 3px;*/
+    /*background: var(--company-color);*/
+    transform: translateY(-50%);
+    z-index: 2;
+}
+
+/* Marcadores de eventos */
+.event-marker {
+    position: absolute;
+    z-index: 10;
+    /*transform: translateX(-50%);*/
+}
+
+.period-marker {
+    height: 525px;
+    border-radius: 4px;
+    padding: 8px;
+    display: flex;
+    align-items: normal;
+    justify-content: center;
+}
+
+/* COVID-19 */
+.covid-marker {
+    background: var(--covid-color);
+    border: 2px dashed #fca5a5;
+    top: 8%;
+    z-index: 1;
+}
+
+
+/* Terremoto */
+.earthquake-marker {
+    position: absolute;
+    width: 2px;
+    height: 525px;
+    background: repeating-linear-gradient(to bottom,
+            var(--earthquake-color),
+            var(--earthquake-color) 6px,
+            transparent 6px,
+            transparent 12px);
+    z-index: 15;
+    top: 8%;
+}
+
+/* Elementos de compañía */
+.company {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*width: 140px;*/
+    padding: 10px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    z-index: 15;
+    transform: translateX(10%);
+}
+
+.company::before {
+    content: '';
+    position: absolute;
+    left: -18%;
+    width: 10px;
+    height: 10px;
+    background: var(--company-color-circle);
+    border: 2px solid var(--company-color);
+    border-radius: 50%;
+    box-shadow: var(--shadow-md);
+    /*transform: translateX(-333%);*/
+    z-index: 16;
+}
+
+.company::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    height: 66px;
+    width: 0px;
+    background: var(--company-color);
+    transform: translateX(5%);
+    z-index: 14;
+    top: 100%;
+}
+
+.company:nth-child(odd) {
+    top: 14.7%;
+}
+
+.company:nth-child(odd)::before {
+    bottom: -40px;
+}
+
+.company:nth-child(odd)::after {
+    bottom: -30px;
+}
+
+.company:nth-child(even) {
+    top: 67%;
+}
+
+.company:nth-child(even)::before {
+    top: -40px;
+}
+
+.company:nth-child(even)::after {
+    top: -50px;
+    /*height: 50px;*/
+}
+
+.company:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateX(5%) translateY(-5px);
+    z-index: 20;
+}
+
+.company-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    margin-bottom: 0.15rem;
+    border: 2px solid #fff;
+    box-shadow: var(--shadow-sm);
+    background: white;
+    object-fit: contain;
+}
+
+.company-name {
+    font-size: 0.6rem;
+    color: var(--primary-gray);
+    text-align: center;
+    line-height: 1.3;
+    padding: 4px 8px;
+    border-radius: 6px;
+    background: var(--company-color-bg2);
+}
+
+/* Tooltips */
+.company:hover::after {
+    content: "👤 " attr(data-rol) "\A📅 " attr(data-dates) "\A🏢 " attr(data-employer) "\A⚙️ " attr(data-tech);
+    position: absolute;
+    left: 50%;
+    min-width: 180px;
+    max-width: 240px;
+    background: rgba(0, 0, 0, 0.97);
+    color: #fff;
+    padding: 16px 20px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    backdrop-filter: blur(10px);
+    z-index: 30;
+    transform: translateX(-50%);
+    pointer-events: none;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    text-align: left;
+    word-wrap: break-word;
+    display: block;
+    min-height: 120px;
+    /* Altura base para 4 líneas */
+    box-sizing: content-box;
+    /* Padding no afecta altura mínima */
+}
+
+/* Ajuste específico para contenido largo */
+.company[data-tech*="Shell Scripting"]:hover::after {
+    min-height: 160px;
+    /* Altura especial para BBVA */
+    padding-bottom: 30px;
+}
+
+.company:nth-child(odd):hover::after {
+    bottom: -140px;
+}
+
+.company:nth-child(even):hover::after {
+    top: -140px;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem;
+    }
+
+    .container {
+        padding: 1rem;
+    }
+
+    .years-grid {
+        grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+        overflow-x: auto;
+    }
+
+    .company {
+        width: 120px;
+    }
+
+    .company:hover::after {
+        width: 180px;
+        font-size: 0.65rem;
+    }
+}
+
+/* Corrección de alineación de círculos */
+.company::before {
+    bottom: -65px !important;
+    top: auto !important;
+}
+
+.company:nth-child(even)::before {
+    top: -55px !important;
+    bottom: auto !important;
+}
+
+/* Ajuste de tipografía para eventos */
+.event-label {
+    /*font-family: var(--event-font);*/
+    /*font-weight: 600;*/
+    font-size: 0.85rem;
+    letter-spacing: -0.05rem;
+    color: var(--primary-gray);
+    padding-left: 10px;
+}
+
+.period-marker .event-label {
+    /*font-size: 0.9rem;*/
+    color: #dc2626;
+    text-transform: uppercase;
+    /*letter-spacing: 0.03rem;*/
+}
+
+.earthquake-marker .event-label {
+    color: #dc2626;
+    /*font-weight: 700;*/
+}
+
+/* Ajuste preciso de posiciones */
+.covid-marker {
+    left: 69.3% !important;
+    width: 17.11% !important;
+}
+
+.earthquake-marker {
+    left: 56.14% !important;
+}
+
+/* Mejora en tooltips */
+.company:hover::after {
+    /*min-height: auto;*/
+    padding: 16px 20px;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+/* Correcciones clave para la alineación vertical */
+.company {
+    top: 50px !important;
+    /* Posición base unificada */
+}
+
+.company:nth-child(odd) {
+    top: 20.7% !important;
+    /* Todas las empresas en posición superior */
+}
+
+.company:nth-child(even) {
+    top: 61% !important;
+    /* Posición inferior con espacio definido */
+}
+
+/* Ajuste de conectores verticales */
+.company::after {
+    height: 100px !important;
+    /* Altura fija para conexión */
+    top: 100% !important;
+}
+
+.company:nth-child(even)::after {
+    height: 100px !important;
+    top: -20.7% !important;
+    bottom: 100% !important;
+}
+
+/* Posicionamiento preciso de círculos */
+.company::before {
+    bottom: -28px !important;
+    /* Alineación con línea temporal */
+}
+
+.company:nth-child(even)::before {
+    top: -28px !important;
+    bottom: auto !important;
+}
+
+/* Ajuste de tooltips para posiciones fijas */
+.company:nth-child(odd):hover::after {
+    bottom: -160px !important;
+}
+
+.company:nth-child(even):hover::after {
+    top: -28px !important;
+}
+
+/************/
+
+
+.period-shade {
+    position: absolute;
+    height: 5.5%;
+    background: var(--company-color-bg1);
+    z-index: 6;
+    border-left: 2px solid var(--company-color);
+    border-right: 2px solid var(--company-color-bg3);
+}
+
+/* Sombreado para empresas en posición superior */
+.company:nth-child(odd)~.period-shade {
+    top: 150px;
+}
+
+/* Sombreado para empresas en posición inferior */
+.company:nth-child(even)~.period-shade {
+    top: 285px;
+}
+
+/* Marcador de fin */
+.company-end-marker {
+    position: absolute;
+    width: 2px;
+    height: 100px;
+    background: var(--company-color-bg3);
+    opacity: 0.5;
+    z-index: 6;
+    /*transform: translateX(-50%);*/
+}
+
+/* Marcador superior */
+.company-end-marker.top {
+    top: 150px;
+}
+
+/* Marcador inferior */
+.company-end-marker.bottom {
+    top: 285px;
+}
+
+/*****************/
+
+/* Estilos para trabajos secundarios */
+.side-project {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*width: 140px;*/
+    padding: 1rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    z-index: 5;
+    transform: translateX(-50%);
+    top: 438px !important;
+    /* Más abajo que los trabajos principales */
+}
+
+
+.side-project::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    background: var(--side-project-circle);
+    border: 2px solid var(--side-project);
+    border-radius: 50%;
+    box-shadow: var(--shadow-md);
+    transform: translateX(-50%);
+    z-index: 6;
+    top: -161px !important;
+}
+
+.side-project::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    height: 161px !important;
+    width: 2px;
+    background: var(--side-project);
+    transform: translateX(-50%);
+    z-index: 4;
+    top: -161px !important;
+}
+
+/* Heredar estilos de hover y otros elementos */
+.side-project:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateX(-50%) translateY(-5px);
+    z-index: 30;
+}
+
+.side-project .company-name {
+    font-size: 0.6rem;
+    color: var(--primary-gray);
+    text-align: center;
+    line-height: 1.3;
+    padding: 4px 8px;
+    border-radius: 6px;
+    background-color: rgba(144, 205, 244, 0.15);
+}
+
+/* Ajustes para el tooltip de trabajos secundarios */
+.side-project:hover::after {
+    content: "👤 " attr(data-rol) "\A📅 " attr(data-dates) "\A🏢 " attr(data-employer) "\A⚙️ " attr(data-tech);
+    position: absolute;
+    left: 50%;
+    min-width: 180px;
+    max-width: 240px;
+    background: rgba(0, 0, 0, 0.97);
+    color: #fff;
+    padding: 16px 20px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    top: -140px;
+}
+
+.side-project .company-name {
+    font-size: 0.6rem;
+    color: var(--primary-gray);
+    text-align: center;
+    line-height: 1.3;
+    padding: 4px 8px;
+    border-radius: 6px;
+    background-color: var(--side-project-bg3);
+}
