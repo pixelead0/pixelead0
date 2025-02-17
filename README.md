@@ -4,21 +4,19 @@
 
 </h1>
 
+👨‍💻Computer engineer
+
+🐍Python Backend Developer 
+
+🇲🇽CDMX🌮
+
 🤵Entrepreneur
 
 🧀 Mr. Quesillo
 
-🏢 Chief Commercial Officer | Productos Cielo Rojo
-
-👨‍💻Computer engineer
+🏢 Chief Commercial Officer | [@Xeluxio](https://t.me/xeluxio)
 
 💯Left-handed
-
-💻Backend Developer
-
-🐍Python
-
-🇲🇽CDMX🌮
 
 👯 I'm collaborating on
 
