@@ -26,6 +26,9 @@ https://github.com/chingona-com-mx
 
 https://github.com/py-mx
 
+# [![Buy Me A Coffee](https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20coffee&emoji=☕&slug=pixelead0&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff)](https://www.buymeacoffee.com/pixelead0)
+
+
 # History Jobs
 [![Timeline experience of pixelead0](img/timeline202502.png)](https://pixelead0.github.io/pixelead0/index.html)
 [View page](https://pixelead0.github.io/pixelead0/index.html)
